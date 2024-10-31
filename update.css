@@ -1,0 +1,106 @@
+/* Algemeen CSS voor de update pagina */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Instellen van het lettertype voor de pagina */
+    margin: 0; /* Geen marge rondom de pagina */
+    padding: 0; /* Geen padding voor de body */
+    background-color: #f9f9f9; /* Achtergrondkleur voor de pagina */
+    color: #333; /* Tekstkleur voor de pagina */
+    display: flex; /* Flexbox lay-out voor body */
+    flex-direction: column; /* Plaatst de items verticaal */
+    align-items: center; /* Centreert items horizontaal */
+    justify-content: center; /* Centreert items verticaal */
+    height: 100vh; /* Pagina vult de volledige hoogte van het scherm */
+    text-align: center; /* Centreert de tekst */
+    overflow: hidden; /* Verberg overbodige inhoud die buiten het scherm valt */
+}
+
+.navbar {
+    position: absolute; /* Plaatst de navbar absoluut bovenaan de pagina */
+    top: 0; /* Plaatst de navbar aan de bovenkant van de pagina */
+    left: 0; /* Plaatst de navbar links */
+    right: 0; /* Plaatst de navbar rechts */
+    display: flex; /* Flexbox voor de navbar-items */
+    justify-content: center; /* Centreert de links in de navbar */
+    background-color: rgba(255, 255, 255, 0.8); /* Achtergrondkleur met transparantie */
+    padding: 2vh; /* Padding voor de navbar */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* Schaduw voor de navbar */
+    font-size: 2.5vh; /* Lettergrootte in de navbar */
+    backdrop-filter: blur(10px); /* Wazige achtergrond van de navbar */
+    z-index: 10; /* Zorg ervoor dat de navbar boven andere elementen staat */
+    flex-wrap: wrap; /* Zorgt ervoor dat de items op meerdere regels kunnen breken als dat nodig is */
+}
+
+.navbar a {
+    color: #007BFF; /* Tekstkleur voor de links in de navbar */
+    padding: 1.5vh 3vw; /* Padding rondom de links */
+    text-decoration: none; /* Verwijder onderstreping van de links */
+    font-weight: 600; /* Dikker lettertype */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animatie-effect voor kleur- en achtergrondveranderingen bij hover */
+}
+
+.navbar a:hover {
+    background-color: #f1f1f1; /* Achtergrondkleur wanneer er over de link wordt gehoverd */
+    color: #0056b3; /* Tekstkleur wanneer er over de link wordt gehoverd */
+}
+
+.navbar a.active {
+    background-color: #007BFF; /* Achtergrondkleur voor de actieve link */
+    color: #fff; /* Tekstkleur voor de actieve link */
+    border-radius: 0.5vh; /* Ronde hoeken voor de actieve link */
+}
+
+.update-container {
+    background-color: #ffffff; /* Achtergrondkleur van de update-container */
+    padding: 3vh; /* Padding binnen de update-container */
+    border-radius: 1vh; /* Ronde hoeken van de container */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* Schaduw voor de container */
+    width: 90%; /* Breedte van de container is 90% van de beschikbare ruimte */
+    max-width: 50vh; /* Maximale breedte van de container */
+}
+
+.update-container input,
+.update-container textarea {
+    width: calc(100% - 5vh); /* Breedte van de invoervelden minus wat ruimte */
+    padding: 2vh; /* Padding binnen de invoervelden */
+    margin: 1.5vh 0; /* Boven- en ondermarge voor de invoervelden */
+    border: 0.1vh solid #ccc; /* Randkleur en -dikte voor de invoervelden */
+    border-radius: 0.5vh; /* Ronde hoeken voor de invoervelden */
+}
+
+.update-container textarea {
+    height: 7vh; /* Hoogte van het tekstvak */
+    resize: vertical; /* Sta verticaal schalen toe van het tekstvak */
+}
+
+.update-container input[type="submit"] {
+    width: 100%; /* De verzendknop neemt de volledige breedte in beslag */
+    padding: 2vh; /* Padding binnen de knop */
+    background-color: #007BFF; /* Achtergrondkleur van de verzendknop */
+    border: none; /* Geen rand voor de knop */
+    color: #fff; /* Tekstkleur voor de knop */
+    border-radius: 0.5vh; /* Ronde hoeken voor de knop */
+    cursor: pointer; /* Verander de cursor naar een pointer bij hover */
+    transition: background-color 0.3s ease; /* Animatie-effect voor de achtergrondkleur van de knop */
+}
+
+.update-container input[type="submit"]:hover {
+    background-color: #0056b3; /* Achtergrondkleur bij hover over de verzendknop */
+}
+
+/* Media query voor mobiele apparaten */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Plaatst de navbar-items verticaal op mobiele apparaten */
+        padding: 1.5vh; /* Verminderde padding voor mobiele apparaten */
+    }
+
+    .navbar a {
+        padding: 1vh; /* Verminderde padding voor de links op mobiele apparaten */
+        font-size: 2vh; /* Kleiner lettertype voor mobiele apparaten */
+    }
+
+    .update-container {
+        padding: 2vh; /* Minder padding voor de update-container op mobiele apparaten */
+        max-width: 90%; /* Grotere maximale breedte op kleinere schermen */
+    }
+}

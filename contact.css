@@ -1,0 +1,207 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Stel het lettertype in voor de gehele pagina */
+    margin: 0; /* Verwijder standaard marge rondom de pagina */
+    padding: 0; /* Verwijder standaard padding rondom de pagina */
+    background-color: #f9f9f9; /* Stel de achtergrondkleur in */
+    color: #333; /* Stel de tekstkleur in */
+    display: flex; /* Gebruik flexbox voor layout */
+    flex-direction: column; /* Zet de flexbox richting in kolomrichting */
+    align-items: center; /* Centreer de inhoud horizontaal */
+    justify-content: center; /* Centreer de inhoud verticaal */
+    height: 100vh; /* Stel de hoogte in op 100% van de viewport hoogte */
+    text-align: center; /* Centreer de tekst */
+    overflow: hidden; /* Verberg inhoud die buiten de viewport valt */
+}
+
+.navbar {
+    position: absolute; /* Positioneer de navbar absoluut ten opzichte van de body */
+    top: 0; /* Plaats de navbar aan de bovenkant van de pagina */
+    left: 0; /* Zorg ervoor dat de navbar vanaf de linkerzijde begint */
+    right: 0; /* Zorg ervoor dat de navbar naar de rechterzijde uitstrekt */
+    display: flex; /* Gebruik flexbox voor de navbar */
+    justify-content: center; /* Centraal uitlijnen van de nav-items en logo */
+    align-items: center; /* Verticaal centreren */
+    background-color: rgba(255, 255, 255, 0.8); /* Achtergrondkleur met een beetje doorzichtigheid */
+    padding: 2vh; /* Padding rondom de navbar */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* Voeg een schaduw toe aan de navbar */
+    font-size: 2.5vh; /* Stel de lettergrootte in voor de nav-items */
+    backdrop-filter: blur(10px); /* Voeg een blur-effect toe aan de achtergrond van de navbar */
+    z-index: 10; /* Zorg ervoor dat de navbar boven andere elementen ligt */
+    flex-wrap: wrap; /* Zorgt ervoor dat de items naar beneden worden geplaatst als er geen ruimte is */
+}
+
+.navbar .logo {
+    height: 6vh; /* Pas de hoogte van het logo aan, indien nodig */
+    margin-right: auto; /* Zorg ervoor dat het logo aan de linkerkant uitgelijnd is */
+}
+
+.navbar a {
+    color: #007BFF; /* Stel de tekstkleur in voor de nav-links */
+    padding: 1.5vh 3vw; /* Padding rondom de nav-links */
+    text-decoration: none; /* Verwijder de onderstreping van de links */
+    font-weight: 600; /* Maak de tekst vetgedrukt */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Voeg een overgangseffect toe voor achtergrondkleur en tekstkleur bij hover */
+}
+
+.navbar a:hover {
+    background-color: #f1f1f1; /* Achtergrondkleur bij hover */
+    color: #0056b3; /* Tekstkleur bij hover */
+}
+
+.navbar a.active {
+    background-color: #007BFF; /* Achtergrondkleur voor de actieve link */
+    color: #fff; /* Tekstkleur voor de actieve link */
+    border-radius: 0.5vh; /* Voeg afgeronde hoeken toe aan de actieve link */
+}
+
+.contact-container {
+    display: flex; /* Gebruik flexbox voor de container */
+    flex-direction: column; /* Zet de flexbox richting in kolomrichting */
+    align-items: center; /* Centreer de inhoud horizontaal */
+    justify-content: center; /* Centreer de inhoud verticaal */
+    height: calc(100vh - 8vh); /* Ruimte voor de navbar */
+    width: 100%; /* Stel de breedte in op 100% */
+    margin-top: 4vh; /* Ruimte boven de inhoud */
+}
+
+.form-container {
+    background-color: #ffffff; /* Achtergrondkleur van de container voor het formulier */
+    padding: 3vh; /* Padding rondom de inhoud van de container */
+    border-radius: 1vh; /* Voeg afgeronde hoeken toe aan de container */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* Voeg een schaduw toe aan de container */
+    width: 90%; /* Stel de breedte van de container in op 90% */
+    max-width: 50vh; /* Stel de maximale breedte van de container in op 50% van de viewport hoogte */
+}
+
+.form-container input,
+.form-container textarea {
+    width: calc(100% - 5vh); /* Zorg ervoor dat de invoervelden de beschikbare breedte gebruiken, met een marge */
+    padding: 2vh; /* Padding rondom de inhoud van de invoervelden */
+    margin: 1.5vh 0; /* Voeg marge boven en onder de invoervelden toe */
+    border: 0.1vh solid #ccc; /* Voeg een dunne grens toe aan de invoervelden */
+    border-radius: 0.5vh; /* Voeg afgeronde hoeken toe aan de invoervelden */
+}
+
+.form-container textarea {
+    height: 7vh; /* Zorg ervoor dat de hoogte gelijk is aan de invoervelden */
+    resize: vertical; /* Laat de gebruiker alleen verticaal aanpassen */
+}
+
+.form-container button {
+    width: 100%; /* Zorg ervoor dat de knop de volledige breedte van de container gebruikt */
+    padding: 2vh; /* Padding rondom de knop */
+    background-color: #007BFF; /* Achtergrondkleur van de knop */
+    border: none; /* Verwijder de standaard rand van de knop */
+    color: #fff; /* Tekstkleur van de knop */
+    border-radius: 0.5vh; /* Voeg afgeronde hoeken toe aan de knop */
+    cursor: pointer; /* Verander de cursor naar een pointer bij hover */
+    transition: background-color 0.3s ease; /* Voeg een overgangseffect toe voor de achtergrondkleur bij hover */
+}
+
+.form-container button:hover {
+    background-color: #0056b3; /* Achtergrondkleur van de knop bij hover */
+}
+
+/* Algemene stijlen voor de modal */
+.modal {
+    display: none; /* Verborgen standaard */
+    position: fixed; /* Positioneer de modal vast op het scherm */
+    z-index: 1000; /* Zorg ervoor dat de modal boven andere elementen ligt */
+    left: 0; /* Zorg ervoor dat de modal aan de linkerzijde van het scherm begint */
+    top: 0; /* Zorg ervoor dat de modal aan de bovenkant van het scherm begint */
+    width: 100%; /* Stel de breedte van de modal in op 100% */
+    height: 100%; /* Stel de hoogte van de modal in op 100% */
+    overflow: auto; /* Voeg scrollbars toe indien nodig */
+    background-color: rgba(0,0,0,0.6); /* Donkere achtergrond met een beetje doorzichtigheid */
+    animation: fadeIn 0.3s ease; /* Voeg een fade-in animatie toe bij het tonen van de modal */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* Start met een onzichtbare fade-in animatie */
+    to { opacity: 1; } /* Eindig met een volledig zichtbare modal */
+}
+
+.modal-content {
+    background-color: #fff; /* Achtergrondkleur van de inhoud van de modal */
+    margin: 10% auto; /* Zorg ervoor dat de inhoud gecentreerd is met marges aan de boven- en onderkant */
+    padding: 20px; /* Padding rondom de inhoud van de modal */
+    border-radius: 10px; /* Voeg afgeronde hoeken toe aan de inhoud van de modal */
+    width: 80%; /* Stel de breedte van de inhoud in op 80% van de modal breedte */
+    max-width: 500px; /* Stel de maximale breedte van de inhoud in op 500px */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Voeg een schaduw toe aan de inhoud van de modal */
+    animation: slideIn 0.3s ease; /* Voeg een slide-in animatie toe bij het tonen van de inhoud */
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; } /* Start met een opwaartse verschuiving en onzichtbaarheid */
+    to { transform: translateY(0); opacity: 1; } /* Eindig met de inhoud op zijn normale plaats en volledig zichtbaar */
+}
+
+.close {
+    color: #333; /* Tekstkleur van de sluitknop */
+    float: right; /* Plaats de sluitknop aan de rechterzijde van de modal */
+    font-size: 30px; /* Stel de lettergrootte van de sluitknop in */
+    font-weight: bold; /* Maak de tekst vetgedrukt */
+    cursor: pointer; /* Verander de cursor naar een pointer bij hover */
+    transition: color 0.3s ease; /* Voeg een overgangseffect toe voor de kleur bij hover */
+}
+
+.close:hover,
+.close:focus {
+    color: #e74c3c; /* Rood kleur bij hover of focus */
+    text-decoration: none; /* Verwijder de onderstreping bij hover of focus */
+}
+
+.modal-message {
+    font-size: 16px; /* Stel de lettergrootte van de modal-bericht in */
+    line-height: 1.5; /* Stel de regelhoogte in voor leesbaarheid */
+}
+
+/* Media query voor mobiele apparaten */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Zet de flexbox richting in kolomrichting op mobiele apparaten */
+        padding: 1.5vh; /* Pas de padding van de navbar aan voor mobiele apparaten */
+    }
+    .navbar a {
+        padding: 1vh; /* Pas de padding van de nav-links aan voor mobiele apparaten */
+        font-size: 2vh; /* Pas de lettergrootte van de nav-links aan voor mobiele apparaten */
+    }
+    .contact-container {
+        height: calc(100vh - 6vh); /* Pas de hoogte aan op basis van de nieuwe navbar hoogte */
+        margin-top: 2vh; /* Pas de marge aan om ruimte te maken voor de navbar */
+    }
+    .form-container {
+        padding: 2vh; /* Pas de padding van de container aan voor mobiele apparaten */
+        max-width: 90%; /* Pas de maximale breedte van de container aan voor mobiele apparaten */
+    }
+}
+
+/* Fade-in animatie */
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 1s ease-in forwards;
+}
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Modal fade-in animatie */
+.modal .modal-content {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: modalFadeIn 0.5s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

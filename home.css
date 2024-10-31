@@ -1,0 +1,145 @@
+/* home.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Stel het lettertype in voor de gehele pagina */
+    margin: 0; /* Verwijder standaard marge rondom de pagina */
+    padding: 0; /* Verwijder standaard padding rondom de pagina */
+    background-color: #f9f9f9; /* Stel de achtergrondkleur in */
+    color: #333; /* Stel de tekstkleur in */
+    display: flex; /* Gebruik flexbox voor layout */
+    flex-direction: column; /* Zet de flexbox richting in kolomrichting */
+    align-items: center; /* Centreer de inhoud horizontaal */
+    justify-content: center; /* Centreer de inhoud verticaal */
+    height: 100vh; /* Stel de hoogte in op 100% van de viewport hoogte */
+    text-align: center; /* Centreer de tekst */
+    overflow: hidden; /* Verberg overlopende inhoud */
+}
+
+.navbar {
+    position: absolute; /* Positioneer de navbar absoluut ten opzichte van de body */
+    top: 0; /* Plaats de navbar aan de bovenkant van de pagina */
+    left: 0; /* Zorg ervoor dat de navbar vanaf de linkerzijde begint */
+    right: 0; /* Zorg ervoor dat de navbar naar de rechterzijde uitstrekt */
+    display: flex; /* Gebruik flexbox voor de navbar */
+    justify-content: center; /* Centreer de nav-items horizontaal */
+    background-color: rgba(255, 255, 255, 0.8); /* Achtergrondkleur met een beetje doorzichtigheid */
+    padding: 2vh; /* Padding rondom de navbar */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* Voeg een schaduw toe aan de navbar */
+    font-size: 2.5vh; /* Stel de lettergrootte in voor de nav-items */
+    backdrop-filter: blur(10px); /* Voeg een blur-effect toe aan de achtergrond van de navbar */
+    z-index: 10; /* Zorg ervoor dat de navbar boven andere elementen ligt */
+    flex-wrap: wrap; /* Zorg ervoor dat de items naar beneden worden geplaatst als er geen ruimte is */
+}
+
+.navbar a {
+    color: #007BFF; /* Stel de tekstkleur in voor de nav-links */
+    padding: 1.5vh 3vw; /* Padding rondom de nav-links */
+    text-decoration: none; /* Verwijder de onderstreping van de links */
+    font-weight: 600; /* Maak de tekst vetgedrukt */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Voeg een overgangseffect toe voor achtergrondkleur en tekstkleur bij hover */
+}
+
+.navbar a:hover {
+    background-color: #f1f1f1; /* Achtergrondkleur bij hover */
+    color: #0056b3; /* Tekstkleur bij hover */
+}
+
+.navbar a.active {
+    background-color: #007BFF; /* Achtergrondkleur voor de actieve link */
+    color: #fff; /* Tekstkleur voor de actieve link */
+    border-radius: 0.5vh; /* Voeg afgeronde hoeken toe aan de actieve link */
+}
+
+.content {
+    display: flex; /* Gebruik flexbox voor de content-container */
+    flex-direction: column; /* Zet de flexbox richting in kolomrichting */
+    align-items: center; /* Centreer de inhoud horizontaal */
+    justify-content: center; /* Centreer de inhoud verticaal */
+    height: calc(100vh - 6vh); /* Stel de hoogte in, rekening houdend met de hoogte van de navbar */
+    width: 100%; /* Stel de breedte in op 100% */
+    position: relative; /* Positioneer relatief om de top-marge te gebruiken */
+    top: 6vh; /* Ruimte boven de inhoud */
+}
+
+.logo-container {
+    display: flex; /* Gebruik flexbox voor de logo-container */
+    justify-content: center; /* Centreer de logo horizontaal */
+    align-items: center; /* Centreer de logo verticaal */
+    margin-bottom: 7vh; /* Voeg marge onder het logo toe */
+}
+
+.logo {
+    width: 25vh; /* Stel de breedte van het logo in */
+    height: 25vh; /* Stel de hoogte van het logo in */
+    border-radius: 50%; /* Maak het logo rond */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* Voeg een schaduw toe aan het logo */
+    animation: logoAnimation 3s infinite linear; /* Voeg een draaiende animatie toe aan het logo */
+}
+
+@keyframes logoAnimation {
+    0% {
+        transform: rotate(0deg); /* Startrotatie van het logo */
+    }
+    100% {
+        transform: rotate(360deg); /* Eindrotatie van het logo */
+    }
+}
+
+.welcome-container {
+    background-color: #ffffff; /* Achtergrondkleur van de welkomstcontainer */
+    padding: 3vh; /* Padding rondom de inhoud van de container */
+    border-radius: 1vh; /* Voeg afgeronde hoeken toe aan de container */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* Voeg een schaduw toe aan de container */
+    width: 90%; /* Stel de breedte van de container in op 90% */
+    max-width: 50vh; /* Stel de maximale breedte in op 50vh */
+}
+
+.welcome-container h1 {
+    margin-bottom: 2vh; /* Voeg marge onder de h1 toe */
+}
+
+.welcome-container p {
+    margin-bottom: 3vh; /* Voeg marge onder de paragrafen toe */
+}
+
+.cta-button {
+    display: inline-block; /* Maak de knop inline-block */
+    padding: 2vh 4vw; /* Padding rondom de knop */
+    background-color: #007BFF; /* Achtergrondkleur van de knop */
+    color: #fff; /* Tekstkleur van de knop */
+    text-decoration: none; /* Verwijder de onderstreping van de knoptekst */
+    border-radius: 0.5vh; /* Voeg afgeronde hoeken toe aan de knop */
+    font-weight: 600; /* Maak de tekst vetgedrukt */
+    transition: background-color 0.3s ease; /* Voeg een overgangseffect toe voor achtergrondkleur bij hover */
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Achtergrondkleur van de knop bij hover */
+}
+
+/* Media query voor mobiele apparaten */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Zet de flexbox richting in kolomrichting op mobiele apparaten */
+        padding: 1.5vh; /* Pas de padding van de navbar aan voor mobiele apparaten */
+    }
+
+    .navbar a {
+        padding: 1vh; /* Pas de padding van de nav-links aan voor mobiele apparaten */
+        font-size: 2vh; /* Pas de lettergrootte van de nav-links aan voor mobiele apparaten */
+    }
+
+    .content {
+        height: calc(100vh - 12vh); /* Pas de hoogte van de content-container aan op basis van de nieuwe navbar hoogte */
+        top: 4vh; /* Ruimte boven de inhoud aanpassen voor mobiele apparaten */
+    }
+
+    .logo {
+        width: 12vh; /* Pas de breedte van het logo aan voor mobiele apparaten */
+        height: 12vh; /* Pas de hoogte van het logo aan voor mobiele apparaten */
+    }
+
+    .welcome-container {
+        padding: 2vh; /* Pas de padding van de container aan voor mobiele apparaten */
+        max-width: 90%; /* Pas de maximale breedte van de container aan voor mobiele apparaten */
+    }
+}
